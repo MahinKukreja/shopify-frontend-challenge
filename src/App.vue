@@ -1,28 +1,42 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <br />
+    <!-- Make an API component for each day in daysAgo -->
+    <div :key="day" v-for="day in daysAgo">
+      <API :apiDate="day" />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import moment from "moment";
+import API from "./components/API.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    API,
+  },
+  data() {
+    return {
+      // Empty array for holding days
+      daysAgo: [],
+    };
+  },
+  created() {
+    // Get the properly formatted date for the past 7 days
+    for (var i = 0; i < 7; i++) {
+      this.daysAgo[i] = moment().subtract(i, "days").format("Y-MM-DD");
+    }
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: whitesmoke;
+  background-color: #080808;
 }
 </style>
