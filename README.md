@@ -1,5 +1,4 @@
-# frontend-challenge
-
+# NASA APOD Vue.js App
 ## Project setup
 ```
 npm install
