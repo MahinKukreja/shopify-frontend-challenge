@@ -1,4 +1,8 @@
 # NASA APOD Vue.js App
+
+## Functional Demo
+[Hosted on Netlify] (https://shopify-frontend-challenge-2022.netlify.app/)
+
 ## Project setup
 ```
 npm install
